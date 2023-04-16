@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "R7RSw8YlH2u0LHfOJ8fu6DZiLgOx+EFqJDsylCHC/Ok=",
+  "Source": "PeterWongClientRestApi",
+  "BasePath": "_content/PeterWongClientRestApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

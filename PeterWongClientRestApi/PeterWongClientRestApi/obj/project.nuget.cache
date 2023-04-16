@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "ji6O2cfN27PtFaM2Npt/Qx4/qWEgmtEjFKJfj18dC4Twi+4RLPZRwhBqTBLct31w/yv66NSAYNjp2a1wWmEhyQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\pwong\\source\\repos\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pwong\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\pwong\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\pwong\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\pwong\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\pwong\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\pwong\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
