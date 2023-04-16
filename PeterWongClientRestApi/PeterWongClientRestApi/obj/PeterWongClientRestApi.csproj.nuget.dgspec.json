@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pwong\\source\\repos\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj": {}
+    "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pwong\\source\\repos\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj": {
+    "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pwong\\source\\repos\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj",
+        "projectUniqueName": "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj",
         "projectName": "PeterWongClientRestApi",
-        "projectPath": "C:\\Users\\pwong\\source\\repos\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj",
+        "projectPath": "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj",
         "packagesPath": "C:\\Users\\pwong\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pwong\\source\\repos\\PeterWongClientRestApi\\PeterWongClientRestApi\\obj\\",
+        "outputPath": "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,6 +45,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"

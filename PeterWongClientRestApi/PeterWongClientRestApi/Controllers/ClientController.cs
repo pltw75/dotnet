@@ -1,33 +1,35 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using PeterWongClientRestApi.Data;
+using PeterWongClientRestApi.Models;
 
+// FULL DISCLOSURE
+// code from the tutorial examples below was used
+// https://learn.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-7.0&tabs=visual-studio
+// https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-7.0&tabs=visual-studio
 namespace PeterWongClientRestApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class ClientController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        const int PAGE_SIZE = 10;
 
         private readonly ILogger<ClientController> _logger;
+        private readonly ClientContext _context;
 
-        public ClientController(ILogger<ClientController> logger)
+        public ClientController(ILogger<ClientController> logger, ClientContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         [HttpGet(Name = "GetClient")]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IEnumerable<ClientModel>> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var clientList = await _context.Clients.Take(PAGE_SIZE).ToListAsync();
+
+            return clientList;
         }
     }
 }
