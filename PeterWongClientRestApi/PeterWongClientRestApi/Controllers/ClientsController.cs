@@ -33,6 +33,9 @@ CRUD unit tests are implemented with Moq,
 Asserts are written using Fluent Assertions to be more readable
 https://fluentassertions.com/
 
+To protect from overposting attacks, I only enable the specific properties I want to bind to
+http://go.microsoft.com/fwlink/?LinkId=317598.
+
 For production, I would also consider going over this checklist and guide
 https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
 https://owasp.org/www-project-code-review-guide/
@@ -40,7 +43,6 @@ https://owasp.org/www-project-code-review-guide/
 
 namespace PeterWongClientRestApi.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
     public class ClientsController : ControllerBase
     {
@@ -51,24 +53,11 @@ namespace PeterWongClientRestApi.Controllers
             _clientService = clientService;
         }
 
-        // Heartbeat, needed by some load balancers and telemetry/analytics services to confirm your service is still alive
-        [HttpGet("Health")]
-        public IActionResult Get()
-        {
-            return Ok(
-                new
-                {
-                    RandomGuid = Guid.NewGuid().ToString(),
-                    UTC = DateTime.UtcNow.ToString(),
-                    MachineName = Environment.MachineName,
-                    Released = "18 Apr 2023",
-                    StatusOrError = "Ok"
-                });
-        }
-
         // CRUD implementations
+        // To protect from overposting attacks, I only enable the specific properties I want to bind to
+        // http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost("CreateClient")]
-        public async Task<ClientResponseModel> CreateClientAsync(ClientModel clientModel)
+        public async Task<ClientResponseModel> CreateClientAsync([Bind("UniqueId,ClientName,ContactEmailAddress,DateBecameCustomer")] ClientModel clientModel)
         {
             return await _clientService.CreateClientAsync(clientModel);
         }
@@ -95,8 +84,10 @@ namespace PeterWongClientRestApi.Controllers
             return await _clientService.ReadClientByIdAsync(id);
         }
 
+        // To protect from overposting attacks, I only enable the specific properties I want to bind to
+        // http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPut("UpdateClient")]
-        public async Task<ClientResponseModel> UpdateClientAsync(ClientModel clientModel)
+        public async Task<ClientResponseModel> UpdateClientAsync([Bind("ID,UniqueId,ClientName,ContactEmailAddress,DateBecameCustomer")] ClientModel clientModel)
         {
             return await _clientService.UpdateClientAsync(clientModel);
         }

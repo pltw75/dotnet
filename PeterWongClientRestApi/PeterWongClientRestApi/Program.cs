@@ -1,6 +1,10 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PeterWongClientRestApi.Data;
 using PeterWongClientRestApi.Services;
+
+// https://learn.microsoft.com/en-gb/aspnet/core/web-api/?view=aspnetcore-7.0#apicontroller-attribute
+[assembly: ApiController]
 
 var builder = WebApplication.CreateBuilder(args);
 
