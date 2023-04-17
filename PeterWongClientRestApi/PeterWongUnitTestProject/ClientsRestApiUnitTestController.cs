@@ -7,10 +7,10 @@ using PeterWongClientRestApi.Services;
 
 namespace PeterWongUnitTestProject
 {
-    public class UnitTestController
+    public class ClientsRestApiUnitTestController
     {
         private readonly Mock<IClientService> clientService;
-        public UnitTestController()
+        public ClientsRestApiUnitTestController()
         {
             clientService = new Mock<IClientService>();
         }
@@ -37,7 +37,7 @@ namespace PeterWongUnitTestProject
                 // .Result can deadlock in production but it is safe for testing
                 clientService.Setup(x => x.CreateClientAsync(clientList[i]).Result)
                     .Returns(clientResponseModel);
-                var clientController = new ClientController(clientService.Object);
+                var clientController = new ClientsController(clientService.Object);
 
                 // act
                 var clientResult = clientController.CreateClientAsync(clientList[i]).Result;
@@ -59,7 +59,7 @@ namespace PeterWongUnitTestProject
             clientService.Setup(x => x.ReadClientPage(0))
                 .Returns(clientList.Take(ClientService.PAGE_SIZE));
 
-            var clientController = new ClientController(clientService.Object);
+            var clientController = new ClientsController(clientService.Object);
 
             // act
             var clientResult = clientController.ReadClientPage(0);
@@ -98,7 +98,7 @@ namespace PeterWongUnitTestProject
                 clientService.Setup(x => x.ReadClientByIdAsync(clientResponseModel.clientModel.ID).Result)
                     .Returns(clientResponseModel);
 
-                var clientController = new ClientController(clientService.Object);
+                var clientController = new ClientsController(clientService.Object);
 
                 // act
                 // .Result can deadlock in production but it is safe for testing
@@ -123,7 +123,7 @@ namespace PeterWongUnitTestProject
             clientService.Setup(x => x.ReadClientPage(0))
                 .Returns(clientList.Take(ClientService.PAGE_SIZE));
 
-            var clientController = new ClientController(clientService.Object);
+            var clientController = new ClientsController(clientService.Object);
 
             // act
             var clientResult = clientController.ReadClientPage(0);
@@ -156,7 +156,7 @@ namespace PeterWongUnitTestProject
                 // .Result can deadlock in production but it is safe for testing
                 clientService.Setup(x => x.UpdateClientAsync(clientList[i]).Result)
                     .Returns(clientResponseModel);
-                var clientController = new ClientController(clientService.Object);
+                var clientController = new ClientsController(clientService.Object);
 
                 // act
                 var clientResult = clientController.UpdateClientAsync(clientList[i]).Result;
@@ -178,7 +178,7 @@ namespace PeterWongUnitTestProject
             {
                 var clientResponseModel = new ClientResponseModel()
                 {
-                    clientModel = clientList[i],
+                    clientModel = new ClientModel(),
                     IsOk = true,
                     StatusOrError = "Ok"
                 };
@@ -187,7 +187,7 @@ namespace PeterWongUnitTestProject
                 // .Result can deadlock in production but it is safe for testing
                 clientService.Setup(x => x.DeleteClientAsync(clientList[i].ID).Result)
                     .Returns(clientResponseModel);
-                var clientController = new ClientController(clientService.Object);
+                var clientController = new ClientsController(clientService.Object);
 
                 // act
                 var clientResult = clientController.DeleteClientAsync(clientList[i].ID).Result;
@@ -195,7 +195,7 @@ namespace PeterWongUnitTestProject
                 // Fluent Assertions
                 clientResult.Should().NotBeNull();
                 clientResult.IsOk.Should().BeTrue();
-                clientResult.clientModel.UniqueId.Should().NotBe(new Guid());
+                clientResult.clientModel.UniqueId.Should().Be(new Guid());
             }
         }
     }

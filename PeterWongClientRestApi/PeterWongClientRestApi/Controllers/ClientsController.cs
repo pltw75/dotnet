@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using PeterWongClientRestApi.Data;
 using PeterWongClientRestApi.Models;
@@ -7,6 +8,7 @@ using PeterWongClientRestApi.Services;
 // FULL DISCLOSURE
 // code from the tutorial examples below was used, I didn't just copy/paste and change var names,
 // I followed the principles from the tutorial examples and extended them.
+// this is routine research that I would normally be doing in my work as well
 // https://learn.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-7.0&tabs=visual-studio
 // https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-7.0&tabs=visual-studio
 // https://www.c-sharpcorner.com/blogs/implementation-of-unit-test-using-xunit-and-moq-in-net-core-6-web-api
@@ -30,19 +32,38 @@ The Database Connection string is in appsettings.json
 CRUD unit tests are implemented with Moq,
 Asserts are written using Fluent Assertions to be more readable
 https://fluentassertions.com/
+
+For production, I would also consider going over this checklist and guide
+https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+https://owasp.org/www-project-code-review-guide/
 */
 
 namespace PeterWongClientRestApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ClientController : ControllerBase
+    public class ClientsController : ControllerBase
     {
         private readonly IClientService _clientService;
 
-        public ClientController(IClientService clientService)
+        public ClientsController(IClientService clientService)
         {
             _clientService = clientService;
+        }
+
+        // Heartbeat, needed by some load balancers and telemetry/analytics services to confirm your service is still alive
+        [HttpGet("Health")]
+        public IActionResult Get()
+        {
+            return Ok(
+                new
+                {
+                    RandomGuid = Guid.NewGuid().ToString(),
+                    UTC = DateTime.UtcNow.ToString(),
+                    MachineName = Environment.MachineName,
+                    Released = "18 Apr 2023",
+                    StatusOrError = "Ok"
+                });
         }
 
         // CRUD implementations

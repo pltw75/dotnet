@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "R7RSw8YlH2u0LHfOJ8fu6DZiLgOx+EFqJDsylCHC/Ok=",
-  "Source": "PeterWongClientRestApi",
-  "BasePath": "_content/PeterWongClientRestApi",
+  "Hash": "EXLvUvLo35YdASdqNFAoyYjMxRIr8z4Aq6voCUEVtME=",
+  "Source": "PeterWongClientsRestApi",
+  "BasePath": "_content/PeterWongClientsRestApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

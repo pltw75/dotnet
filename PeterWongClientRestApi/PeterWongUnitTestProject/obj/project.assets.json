@@ -2617,7 +2617,7 @@
           "build/netcoreapp3.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "PeterWongClientRestApi/1.0.0": {
+      "PeterWongClientsRestApi/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -2626,10 +2626,10 @@
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "compile": {
-          "bin/placeholder/PeterWongClientRestApi.dll": {}
+          "bin/placeholder/PeterWongClientsRestApi.dll": {}
         },
         "runtime": {
-          "bin/placeholder/PeterWongClientRestApi.dll": {}
+          "bin/placeholder/PeterWongClientsRestApi.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -8199,10 +8199,10 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "PeterWongClientRestApi/1.0.0": {
+    "PeterWongClientsRestApi/1.0.0": {
       "type": "project",
-      "path": "../PeterWongClientRestApi/PeterWongClientRestApi.csproj",
-      "msbuildProject": "../PeterWongClientRestApi/PeterWongClientRestApi.csproj"
+      "path": "../PeterWongClientRestApi/PeterWongClientsRestApi.csproj",
+      "msbuildProject": "../PeterWongClientRestApi/PeterWongClientsRestApi.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8210,7 +8210,7 @@
       "FluentAssertions >= 6.10.0",
       "Microsoft.NET.Test.Sdk >= 17.3.2",
       "Moq >= 4.18.4",
-      "PeterWongClientRestApi >= 1.0.0",
+      "PeterWongClientsRestApi >= 1.0.0",
       "coverlet.collector >= 3.1.2",
       "xunit >= 2.4.2",
       "xunit.runner.visualstudio >= 2.4.5"
@@ -8249,8 +8249,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj": {
-              "projectPath": "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj"
+            "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientsRestApi.csproj": {
+              "projectPath": "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientsRestApi.csproj"
             }
           }
         }

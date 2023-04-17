@@ -11,7 +11,7 @@
           "FluentAssertions": "6.10.0",
           "Microsoft.NET.Test.Sdk": "17.3.2",
           "Moq": "4.18.4",
-          "PeterWongClientRestApi": "1.0.0",
+          "PeterWongClientsRestApi": "1.0.0",
           "coverlet.collector": "3.1.2",
           "xunit": "2.4.2",
           "xunit.runner.visualstudio": "2.4.5"
@@ -1532,14 +1532,14 @@
         }
       },
       "xunit.runner.visualstudio/2.4.5": {},
-      "PeterWongClientRestApi/1.0.0": {
+      "PeterWongClientsRestApi/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.16",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.16",
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
-          "PeterWongClientRestApi.dll": {}
+          "PeterWongClientsRestApi.dll": {}
         }
       }
     }
@@ -2516,7 +2516,7 @@
       "path": "xunit.runner.visualstudio/2.4.5",
       "hashPath": "xunit.runner.visualstudio.2.4.5.nupkg.sha512"
     },
-    "PeterWongClientRestApi/1.0.0": {
+    "PeterWongClientsRestApi/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

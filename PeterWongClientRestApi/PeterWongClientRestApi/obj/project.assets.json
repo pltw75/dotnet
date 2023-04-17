@@ -2130,9 +2130,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj",
-      "projectName": "PeterWongClientRestApi",
-      "projectPath": "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj",
+      "projectUniqueName": "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientsRestApi.csproj",
+      "projectName": "PeterWongClientsRestApi",
+      "projectPath": "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientsRestApi.csproj",
       "packagesPath": "C:\\Users\\pwong\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\obj\\",
       "projectStyle": "PackageReference",

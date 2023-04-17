@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J/94+dUdmuBdTKB/rgTKshnHXxqlcxO1dYwFprWULpEiLFfnknO2dMfNixd08PAZT1bOpw76k0KsHk2O4EbrWw==",
+  "dgSpecHash": "2nECvhT3L51Sqf9isdzrenH7vRqhZhcCmQVNoJJgnSunse/IK4Jqp1KIU3MnD29rLY61+9Fln7l/C6qrwbyThg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientRestApi.csproj",
+  "projectFilePath": "C:\\Users\\pwong\\source\\repos\\dotnet\\PeterWongClientRestApi\\PeterWongClientRestApi\\PeterWongClientsRestApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pwong\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\pwong\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
