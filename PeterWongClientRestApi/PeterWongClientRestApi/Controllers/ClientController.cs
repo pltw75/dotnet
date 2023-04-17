@@ -67,5 +67,17 @@ namespace PeterWongClientRestApi.Controllers
         {
             return await _clientService.ReadClientByIdAsync(id);
         }
+
+        [HttpPut("UpdateClient")]
+        public async Task<ClientResponseModel> UpdateClientAsync(ClientModel clientModel)
+        {
+            return await _clientService.UpdateClientAsync(clientModel);
+        }
+
+        [HttpDelete("DeleteClient")]
+        public async Task<bool> DeleteClientAsync(int id)
+        {
+            return await _clientService.DeleteClientAsync(id);
+        }
     }
 }

@@ -44,8 +44,8 @@ namespace PeterWongClientRestApi.Services
 
                 var hasConflict = await _context.Clients.FirstOrDefaultAsync(
                     x => x.UniqueId == clientModel.UniqueId
-                    && x.ClientName == clientModel.ClientName
-                    && x.ContactEmailAddress == clientModel.ContactEmailAddress);
+                    || (x.ClientName == clientModel.ClientName
+                    && x.ContactEmailAddress == clientModel.ContactEmailAddress));
 
                 if (hasConflict != null)
                 {
@@ -132,6 +132,23 @@ namespace PeterWongClientRestApi.Services
                         StatusOrError = "Error - Client not found, cannot update"
                     };
                 }
+
+                var hasConflict = await _context.Clients.FirstOrDefaultAsync(
+                    x => x.UniqueId == clientModel.UniqueId
+                    || (x.ClientName == clientModel.ClientName
+                    && x.ContactEmailAddress == clientModel.ContactEmailAddress));
+
+                if (hasConflict != null && hasConflict.ID != clientModel.ID)
+                {
+                    return new ClientResponseModel()
+                    {
+                        clientModel = new ClientModel(),
+                        IsOk = false,
+                        StatusOrError = "Error - Client already exists, cannot create a duplicate"
+                    };
+                }
+
+                _context.ChangeTracker.Clear();
 
                 var result = _context.Clients.Update(clientModel);
 
