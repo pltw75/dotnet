@@ -13,6 +13,6 @@ namespace PeterWongClientRestApi.Services
 
         public Task<ClientResponseModel> UpdateClientAsync(ClientModel clientModel);
 
-        public Task<bool> DeleteClientAsync(int id);
+        public Task<ClientResponseModel> DeleteClientAsync(int id);
     }
 }

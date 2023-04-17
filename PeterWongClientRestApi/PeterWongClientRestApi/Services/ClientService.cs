@@ -13,7 +13,7 @@ namespace PeterWongClientRestApi.Services
     public class ClientService : IClientService
     {
         // I only have 8 test clients, the page size can be changed for a larger database.
-        const int PAGE_SIZE = 5;
+        public const int PAGE_SIZE = 5;
         private readonly ClientContext _context;
 
         public ClientService(ClientContext context)
@@ -24,7 +24,7 @@ namespace PeterWongClientRestApi.Services
         // CRUD implementations
         // I have worked with hardware terminal clients that have problems with Http error codes.
         // so for failed lookups e.g. for Read/Update/Delete, or Create conflicts,
-        // I prefer to return 200 success codes with a extra info in the return object,
+        // I prefer to return 200 success codes with extra info in the return object,
         // but that means my API users have to check the extra info in the return object
         public async Task<ClientResponseModel> CreateClientAsync(ClientModel clientModel)
         {
@@ -129,7 +129,7 @@ namespace PeterWongClientRestApi.Services
                     {
                         clientModel = new ClientModel(),
                         IsOk = false,
-                        StatusOrError = "Error - Client not found, cannot update"
+                        StatusOrError = $@"Error - Client ID {clientModel.ID} not found, cannot update"
                     };
                 }
 
@@ -172,20 +172,30 @@ namespace PeterWongClientRestApi.Services
             }
         }
 
-        public async Task<bool> DeleteClientAsync(int id)
+        public async Task<ClientResponseModel> DeleteClientAsync(int id)
         {
             var foundClient = await _context.Clients.FirstOrDefaultAsync(x => x.ID == id);
 
             if (foundClient == null)
             {
-                return false;
+                return new ClientResponseModel()
+                {
+                    clientModel = new ClientModel(),
+                    IsOk = false,
+                    StatusOrError = $@"Error - Client ID {id} not found, cannot delete"
+                };
             }
 
             var result = _context.Remove(foundClient);
 
             await _context.SaveChangesAsync();
 
-            return result != null ? true : false;
+            return new ClientResponseModel()
+            {
+                clientModel = new ClientModel(),
+                IsOk = result != null,
+                StatusOrError = result != null ? "Ok" : $@"Ërror - Client ID {id} cannot be deleted"
+            };
         }
     }
 }
