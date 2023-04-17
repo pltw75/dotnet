@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PeterWongClientRestApi.Data;
+using PeterWongClientRestApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ClientContext>(options =>
   options.UseSqlServer(builder.Configuration.GetConnectionString("ClientContext")));
+builder.Services.AddScoped<IClientService, ClientService>();
 
 var app = builder.Build();
 

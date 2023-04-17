@@ -1,7 +1,12 @@
 namespace PeterWongClientRestApi.Models
 {
     public class ClientModel
-    {        
+    {
+        public ClientModel() 
+        { 
+            ID = 0; 
+        }
+
         public int ID { get; set; }
 
         public Guid UniqueId { get; set; }
